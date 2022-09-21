@@ -29,10 +29,9 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    -name: build and push docker image
-    
-     uses: mr-smithers-excellent/docker-build-push@v5
-     with:
+    - name: build and push docker image
+      uses: actions/docker-build-push@v5
+      with:
          image: anashafeez/newproject
          registry: docker.io
          username: ${{ secrets.DOCKER_USERNAME }}
